@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./friends.css">
+    <title>Document</title>
+</head>
+
+<body>
+<nav>
+    <ul class="nav">
+        <li>
+            <a href="/">Profile</a>
+        </li>
+        <li>
+            <a href="friends.html">Friends</a>
+        </li>
+        <li>
+            <a href="new friend.html">Add a friend</a>
+        </li>
+
+    </ul>
+</nav>
+
+<h1>
+    Friends of The Joker
+</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Occupation</th>
+    </tr>
+    <tr>
+
+            <ul>
+                <li th:each="friend: ${friends}">
+                    <a th:text="${friend.name}"></a>
+                </li>
+            </ul>
+
+    </tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

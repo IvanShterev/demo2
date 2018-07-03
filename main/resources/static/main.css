@@ -1,5 +1,5 @@
 body {
-  background: green;
+  background: grey;
   font-family: Verdana;
 }
 
@@ -42,7 +42,7 @@ a:hover {
   width: 68%;
 }
 
-ul {
+.ul {
   list-style-type: none;
   padding: 0;
 }
@@ -55,8 +55,9 @@ ul {
 }
 
 .nav li {
+    text-align:center;
   display: inline-block;
-  border-left: 1px solid #fffff0;
+border-left: 1px solid #fffff0;
 }
 
 .nav li a {
@@ -73,10 +74,12 @@ ul {
   text-align: left;
   border: 0;
 }
-
+.ul nav {
+  text-align:center;
+}
 .nav li ul {
-  opacity: 0;
-  position: absolute;
+    text-align: center;
+
 }
 
 .nav li:hover ul {
@@ -84,16 +87,7 @@ ul {
   position: absolute;
   transition: opacity 3s;
 }
-.active {
-  color: purple;
-  /* font-weight: bold; */
-  text-decoration: underline;
-}
-.nav li:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transition: color 0.5s;
-}
-.nav li:hover a {
-  color: purple;
-  transition: color 3s;
+
+.nav ul {
+text-align:center;
 }

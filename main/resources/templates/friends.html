@@ -28,32 +28,36 @@
 </nav>
 
 <h1>
-    Friends of The Joker
+    Friends of The Joker :
 </h1>
 
 <table>
     <tr>
-        <th>Name</th>
-        <th>Occupation</th>
-    </tr>
-    <tr>
 
-            <ul>
-                <li th:each="friend: ${friends}">
-                    <a th:text="${friend.name}"></a>
-                </li>
-            </ul>
+        <ul>
+            <li th:each="friend: ${friends}">
+                <label>Name :
+                </label>
+                <a th:text="${friend.name}"></a>
 
+                <label>Occupation :
+                </label>
+                <a th:text="${friend.occupation}"></a>
+
+            </li>
+        </ul>
     </tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    <!--</tr>-->
+
+    <!--<td></td>-->
+    <!--<td></td>-->
+    <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+    <!--<td></td>-->
+    <!--<td></td>-->
+    <!--<td></td>-->
+    <!--</tr>-->
 </table>
 
 </body>

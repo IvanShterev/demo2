@@ -1,27 +1,25 @@
 package com.example.demo2.repositories;
 
-import com.example.demo2.config.HibernateUtils;
 import com.example.demo2.entities.base.ModelEntity;
 import com.example.demo2.repositories.base.GenericRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
-
+@Service
 public class HibernateRepository<T extends ModelEntity> implements GenericRepository<T> {
     private final SessionFactory sessionFactory;
     private Class<T> entityClass;
 
-
-    public HibernateRepository(Class<T> entityClass) {
-        this.sessionFactory = HibernateUtils.getSessionFactory();
-        this.entityClass = entityClass;
+    @Autowired
+    public HibernateRepository(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 
     @Override

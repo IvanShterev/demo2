@@ -2,11 +2,10 @@ package com.example.demo2.repositories;
 
 import com.example.demo2.entities.base.ModelEntity;
 import com.example.demo2.repositories.base.GenericRepository;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-@Component
+
 public class InMemoryRepository<T extends ModelEntity> implements GenericRepository<T> {
     private List<T> entities;
 
@@ -26,7 +25,6 @@ public class InMemoryRepository<T extends ModelEntity> implements GenericReposit
                 return entity;
             }
         }
-
         return null;
     }
 

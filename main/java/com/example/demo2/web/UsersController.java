@@ -24,35 +24,41 @@ public class UsersController {
     @GetMapping("/auth/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "auth/register";
     }
 
     @PostMapping("/auth/register")
     public String register(@ModelAttribute User user) {
         usersService.create(user);
-        return "register";
+        return "auth/register";
     }
 
-    @GetMapping("/users/{username}")
-    public String profile(@PathVariable String username, Model model, Principal principal) {
-        User profile = usersService.getUserByUsername(username);
-        String title = profile.getUsername();
-
-        if (principal != null) {
-            User loggedInUser = usersService.getUserByUsername(principal.getName());
-            if (loggedInUser.getId() == profile.getId()) {
-                title = "My profile";
-            }
-        }
-
-        model.addAttribute("title", title);
-        model.addAttribute("profile", profile);
-
-        return "users/profile";
-    }
+//    @GetMapping("/users/{username}")
+//    public String profile(@PathVariable String username, Model model, Principal principal) {
+//        User profile = usersService.getUserByUsername(username);
+//        String title = profile.getUsername();
+//
+//        if (principal != null) {
+//            User loggedInUser = usersService.getUserByUsername(principal.getName());
+//            if (loggedInUser.getId() == profile.getId()) {
+//                title = "My profile";
+//            }
+//        }
+//
+//        model.addAttribute("title", title);
+//        model.addAttribute("profile", profile);
+//
+//        return "users/profile";
+//    }
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "auth/login";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute User user) {
+        usersService.loadUserByUsername(user.getUsername());
+        return "index";
     }
 }

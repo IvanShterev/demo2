@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -27,14 +27,14 @@
 </nav>
 
 <h1>Add a friend</h1>
-<form>
-    <label for="name">name</label>
-    <input type="text" id="name" name="name">
+<form action="#" th:action="@{/friends/add}" method="post">
+    <label>Name <input type="text" name="name">
+    </label>
+    <label>Occupation <input type="text" name="occupation">
+    </label>
+
     <br>
-    <label for="occupation">occupation</label>
-    <input type="text" id="occupation" name="occupation">
-    <br>
-    <button type="submit">Save</button>
+    <button type="submit">Add</button>
 </form>
 
 </body>

@@ -63,10 +63,9 @@ public class HibernateRepository<T extends ModelEntity> implements GenericReposi
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        session
-                .save(entity);
 
         transaction.commit();
+        session.save(entity);
         session.close();
         return entity;
     }

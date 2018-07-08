@@ -35,7 +35,7 @@ public class User implements ModelEntity {
         this.username = username;
     }
 
-    @Column(name = "password", length = 15, nullable = false)
+    @Column(name = "password")
     public String getPassword() {
         return password;
     }

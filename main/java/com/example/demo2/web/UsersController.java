@@ -23,7 +23,8 @@ public class UsersController {
 
     @GetMapping("/auth/register")
     public String register(Model model) {
-        model.addAttribute("user", new User());
+        User user = new User();
+        model.addAttribute("user", user);
         return "auth/register";
     }
 
@@ -51,14 +52,11 @@ public class UsersController {
 //        return "users/profile";
 //    }
 
-    @GetMapping("/login")
-    public String login() {
-        return "auth/login";
-    }
 
     @PostMapping("/login")
     public String login(@ModelAttribute User user) {
         usersService.loadUserByUsername(user.getUsername());
         return "index";
     }
+
 }

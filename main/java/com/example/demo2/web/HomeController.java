@@ -1,6 +1,7 @@
 package com.example.demo2.web;
 
 import com.example.demo2.entities.Friend;
+import com.example.demo2.entities.User;
 import com.example.demo2.repositories.HibernateRepository;
 import com.example.demo2.repositories.base.GenericRepository;
 import com.example.demo2.services.base.FriendsService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -16,14 +18,14 @@ import java.util.List;
 public class HomeController {
 
     private final FriendsService friendsService;
-//    private final UsersService usersService;
+    private final UsersService usersService;
 
     @Autowired
-    public HomeController(FriendsService friendsService
-//                          UsersService usersService
+    public HomeController(FriendsService friendsService,
+                          UsersService usersService
     ) {
         this.friendsService = friendsService;
-//        this.usersService = usersService;
+        this.usersService = usersService;
 
     }
 
@@ -35,9 +37,7 @@ public class HomeController {
         return "index";
     }
 
-
-    //
-//    private final HibernateRepository<Friend> friendsRepository;
+    //    private final HibernateRepository<Friend> friendsRepository;
 //
 //    @Autowired
 //    public HomeController() {
@@ -50,6 +50,7 @@ public class HomeController {
 //    }
 //
     @GetMapping("/friends.html")
+
     public String friends(Model model) {
         List<Friend> friends = friendsService.getAll();
         model.addAttribute("message", "Hello!");
@@ -61,6 +62,12 @@ public class HomeController {
     @GetMapping("/new friend.html")
     public String newFriend() {
         return "new friend";
+    }
+
+
+    @RequestMapping("/login")
+    public String login() {
+        return "auth/login";
     }
 }
 ////@GetMapping("/login")

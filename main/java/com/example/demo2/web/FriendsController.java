@@ -40,12 +40,12 @@ public class FriendsController {
 ////        return "products/details";
 ////    }
 //
-    @GetMapping("/friends/add")
-    public String add(Model model) {
-        Friend friend = new Friend();
-        model.addAttribute("friend", friend);
-        return "friends/add";
-    }
+//    @GetMapping("/friends/add")
+//    public String add(Model model) {
+//        Friend friend = new Friend();
+//        model.addAttribute("friend", friend);
+//        return "friends/add";
+//    }
 
     @PostMapping("/friends/add")
     public String add(
@@ -54,11 +54,12 @@ public class FriendsController {
     ) {
         try {
             friendsService.createFriend(friend);
-            return "redirect:/";
+            return "index";
         } catch (InvalidObjectException e) {
-            return "redirect:/friends/add";
+            return "index";
         }
     }
+
 }
 //
 ////}
